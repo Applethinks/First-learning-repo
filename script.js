@@ -1,29 +1,29 @@
-// Find the HTML elements we want to control
+// Find website elements
 const welcomeButton = document.getElementById("welcomeButton");
 const themeButton = document.getElementById("themeButton");
 const message = document.getElementById("message");
-
 const clock = document.getElementById("clock");
 const date = document.getElementById("date");
 
-// Welcome button
+// Say Hello button
 welcomeButton.addEventListener("click", function () {
-message.textContent = "Welcome to Applethinks! Keep building awesome things. 🚀";
+message.textContent =
+"Welcome to Applethinks! Keep building awesome things! 🚀";
 });
 
-// Switch between dark and light themes
+// Dark and light theme button
 themeButton.addEventListener("click", function () {
 document.body.classList.toggle("light-mode");
 
-const isLightMode = document.body.classList.contains("light-mode");
-
-themeButton.textContent = isLightMode
-    ? "🌙 Dark Theme"
-    : "☀️ Change Theme";
+if (document.body.classList.contains("light-mode")) {
+    themeButton.textContent = "🌙 Dark Theme";
+} else {
+    themeButton.textContent = "☀️ Change Theme";
+}
 
 });
 
-// Update the clock and date
+// Update clock and date
 function updateClock() {
 const now = new Date();
 
@@ -38,9 +38,10 @@ date.textContent = now.toLocaleDateString(undefined, {
 
 }
 
-// Run immediately, then refresh every second
+// Start the clock immediately
 updateClock();
+
+// Update the clock every second
 setInterval(updateClock, 1000);
 
-// Confirm the script loaded in the browser console
-console.log("Applethinks website loaded successfully!");
+console.log("Applethinks JavaScript loaded successfully!");
